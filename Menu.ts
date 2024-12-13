@@ -6,14 +6,11 @@ export function main() {
 
     let opcao: number;
 
-    const conta: Conta = new Conta(1, 123, 1, "Adriana", 10000);
-    conta.visualizar();
-    conta.sacar(10500);
-    conta.visualizar();
-    conta.depositar(5000);
-    conta.visualizar();
+  const c1 = new Conta (1, 123, 1, "Jonas", 10000);
+  c1.visualizar();
 
-
+  const c2 = new Conta (1, 123, 1, "Aline", 20000);
+  c1.visualizar();
 
     while (true) {
 
