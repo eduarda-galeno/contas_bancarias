@@ -6,12 +6,6 @@ export function main() {
 
     let opcao: number;
 
-  const c1 = new Conta (1, 123, 1, "Jonas", 10000);
-  c1.visualizar();
-
-  const c2 = new Conta (1, 123, 1, "Aline", 20000);
-  c1.visualizar();
-
     while (true) {
 
         console.log(colors.fg.magentastrong, "*****************************************************");
