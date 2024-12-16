@@ -1,96 +1,100 @@
-export abstract class Conta {
+export abstract class Conta{
 
+    // Modelo de dados (Atributos)
     private _numero: number;
     private _agencia: number;
     private _tipo: number;
     private _titular: string;
     private _saldo: number;
 
-    constructor(numero: number, agencia: number, tipo: number, titular: string, saldo: number) {
-        this._numero = numero;
-        this._agencia = agencia;
-        this._tipo = tipo;
-        this._titular = titular;
-        this._saldo = saldo;
-    }
+    // Gerar o Método Construtor
+	constructor(numero: number, agencia: number, tipo: number, titular: string, saldo: number) {
+		this._numero = numero;
+		this._agencia = agencia;
+		this._tipo = tipo;
+		this._titular = titular;
+		this._saldo = saldo;
+	}
+	
+    // Gerar os Métodos Getter's e Setter's
+	public get numero(): number {
+		return this._numero;
+	}
 
-    public get numero() {
-        return this._numero;
-    }
+	public get agencia(): number {
+		return this._agencia;
+	}
 
-    public set numero(numero: number) {
-        this._numero = numero;
-    }
+	public get tipo(): number {
+		return this._tipo;
+	}
 
-    public get agencia() {
-        return this._agencia;
-    }
+	public get titular(): string {
+		return this._titular;
+	}
 
-    public set agencia(agencia: number) {
-        this._agencia = agencia;
-    }
+	public get saldo(): number {
+		return this._saldo;
+	}
 
-    public get tipo() {
-        return this._tipo;
-    }
+	public set numero(value: number) {
+		this._numero = value;
+	}
 
-    public set tipo(tipo: number) {
-        this._tipo = tipo;
-    }
+	public set agencia(value: number) {
+		this._agencia = value;
+	}
 
-    public get titular() {
-        return this._titular;
-    }
+	public set tipo(value: number) {
+		this._tipo = value;
+	}
 
-    public set titular(titular: string) {
-        this._titular = titular;
-    }
+	public set titular(value: string) {
+		this._titular = value;
+	}
 
-    public get saldo() {
-        return this._saldo;
-    }
+	public set saldo(value: number) {
+		this._saldo = value;
+	}
 
-    public set saldo(saldo: number) {
-        this._saldo = saldo;
-    }
-
-    public sacar(valor: number): boolean {
-
-        if (this._saldo < valor) {
-            console.log("\n Saldo Insuficiente!");
+    public sacar(valor: number): boolean{
+        
+        if(valor > this._saldo){
+            console.log("Saldo Insuficiente!");
             return false;
         }
 
-        this._saldo = this._saldo - valor;
+        this._saldo -= valor;
         return true;
     }
 
-    public depositar(valor: number): void {
-        this._saldo = this._saldo + valor;
+    public depositar(valor: number){
+        this._saldo += valor;
     }
 
-    public visualizar(): void {
+    public visualizar(){
 
-        let tipo: string = "";
+        let tipo: string;
 
-        switch (this._tipo) {
+        switch(this._tipo){
             case 1:
                 tipo = "Conta Corrente";
-                break;
+            break;
             case 2:
                 tipo = "Conta Poupança";
-                break;
+            break;
+            default:
+                tipo = "Tipo Inválido!";
         }
 
-        console.log("\n\n*****************************************************");
-        console.log("Dados da Conta:");
-        console.log("*****************************************************");
-        console.log("Numero da Conta: " + this._numero);
-        console.log("Agência: " + this._agencia);
-        console.log("Tipo da Conta: " + tipo);
-        console.log("Titular: " + this._titular);
-        console.log("Saldo: " + this._saldo.toFixed(2));
-
+        console.log("***********************************************");
+        console.log("Dados da Conta");
+        console.log("***********************************************");
+        console.log(`Número da Conta: ${this._numero}`)
+        console.log(`Número da Agência: ${this._agencia}`)
+        console.log(`Tipo da Conta: ${tipo}`)
+        console.log(`Nome do Titular da Conta: ${this._titular}`)
+        console.log(`Saldo da Conta: ${this._saldo}`)
     }
-
+    
 }

@@ -9,6 +9,7 @@ export class ContaPoupanca extends Conta {
         super(numero, agencia, tipo, titular, saldo);
         this._aniversario = aniversario;
     }
+    
     public get aniversario() {
         return this._aniversario;
     }
